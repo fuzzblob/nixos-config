@@ -12,6 +12,7 @@
       apps-system.nix
       apss-gui.nix
       user.nix
+      gnome.nix
     ];
   
   # nix config goes here
