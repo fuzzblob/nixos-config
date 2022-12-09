@@ -11,10 +11,20 @@
       ../../modules/default-ui.nix
     ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  # Use the systemd-boot EFI boot loader.
+  boot = { 
+      loader = {
+          timeout = 3;
+          systemd-boot.enable = true;
+          efi.canTouchEfiVariables = true;
+          efi.efiSysMountPoint = "/boot/efi";
+        };
+
+      # keep kernel up to date - linuxPackages_latest
+      #kernelPackages = pkgs.linuxPackages_5_15;
+      #extraModulePackages = with config.boot.kernelPackages; [ wireguard ];
+    };
+
 
   # Setup keyfile
   boot.initrd.secrets = {
