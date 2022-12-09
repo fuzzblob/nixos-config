@@ -7,14 +7,23 @@
 {
   imports =
     [ # path-tofile.nix
-      networking.nix
-      locale.nix
-      apps-system.nix
       apss-gui.nix
-      user.nix
+      apps-system.nix
       gnome.nix
+      harden.nix
+      locale.nix
+      networking.nix
+      user.nix
     ];
   
   # nix config goes here
+  
+  # Enable cron service
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      #"* * */1 * *      root    date >> /tmp/cron.log"
+    ];
+  };
 }
 
