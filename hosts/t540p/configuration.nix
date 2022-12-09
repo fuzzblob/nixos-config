@@ -11,6 +11,7 @@
       ../../modules/networking.nix
       ../../modules/locale.nix
       ../../modules/apps-system.nix
+      ../../modules/apss-gui.nix
     ];
 
   # Bootloader.
@@ -58,18 +59,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.user = {
-    isNormalUser = true;
-    description = "user";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      vlc
-      
-    #  thunderbird
-    ];
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
