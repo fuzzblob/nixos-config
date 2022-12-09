@@ -12,6 +12,7 @@
       ../../modules/locale.nix
       ../../modules/apps-system.nix
       ../../modules/apss-gui.nix
+      ../../modules/user.nix
     ];
 
   # Bootloader.
