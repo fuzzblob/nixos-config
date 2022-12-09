@@ -25,11 +25,12 @@
       #extraModulePackages = with config.boot.kernelPackages; [ wireguard ];
     };
 
-
   # Setup keyfile
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
   };
+
+  networking.hostName = "t540p"; # Define your hostname.
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

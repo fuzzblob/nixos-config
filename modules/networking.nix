@@ -4,9 +4,7 @@
 
 { config, pkgs, ... }:
 
-{
-  networking.hostName = "t540p"; # Define your hostname.
-  
+{ 
   # Networking
   networking = {
     networkmanager = {
