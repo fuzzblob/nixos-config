@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/networking.nix
+      ../../modules/locale.nix
     ];
 
   # Bootloader.
@@ -20,12 +21,6 @@
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
   };
-
-  # Set your time zone.
-  time.timeZone = "America/Vancouver";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_CA.UTF-8";
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
