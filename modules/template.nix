@@ -5,6 +5,10 @@
 { config, pkgs, ... }:
 
 {
+  imports =
+    [ # path-tofile.nix
+    ];
+  
   # nix config goes here
 }
 
