@@ -12,8 +12,24 @@
     #vim
     nano
     git
+    #neofetch
+
     # a web browser is also very useful
+    # replace firefox with freer version
     librewolf
+    
+    # general admin
+    htop
+    gparted
+    #kate
+    #parted
+    #gnome3.gnome-disk-utility
+    
+    # file analysis
+    #gdu
+    #duc
+    #fdupes
+    #baobab
   ];
 }
 

@@ -11,19 +11,27 @@
       ../../modules/default-ui.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot = { 
-      loader = {
-          timeout = 3;
-          systemd-boot.enable = true;
-          efi.canTouchEfiVariables = true;
-          efi.efiSysMountPoint = "/boot/efi";
-        };
-
-      # keep kernel up to date - linuxPackages_latest
-      #kernelPackages = pkgs.linuxPackages_5_15;
-      #extraModulePackages = with config.boot.kernelPackages; [ wireguard ];
+  # Bootloader.
+  boot.loader = {
+    timeout = 3;
+    systemd-boot.enable = true;
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi";
     };
+    #grub = {
+    #  enable = true;
+    #  efiSupport = true;
+    #  device = "nodev";
+    #  efiSupport = true;
+    #  enableCryptodisk = true;
+    #};
+  };
+  
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
 
   # Setup keyfile
   boot.initrd.secrets = {

@@ -7,13 +7,18 @@
 { config, pkgs, ... }:
 
 {
+  imports =
+    [ 
+      ./audio.nix
+    ];
+  
   # Enable the X11 windowing system.
   # replace with programs.sway.enable = true;
   services.xserver = {
       enable = true;
       # Enable touchpad support (enabled default in most desktopManager).
       libinput.enable = true;
-      #libinput.tapping = false;
+      libinput.touchpad.tapping = true;
       #libinput.tappingDragLock = false;
 
       # Configure keymap in X11
@@ -28,8 +33,8 @@
 
   services.xserver = {
     displayManager.lightdm.enable = true;
-    #displayManager.autoLogin.enable = true;
-    #displayManager.autoLogin.user = "user";
+    displayManager.autoLogin.enable = true;
+    displayManager.autoLogin.user = "user";
 
     desktopManager.cinnamon.enable = true;
   };

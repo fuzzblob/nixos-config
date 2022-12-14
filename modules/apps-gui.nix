@@ -8,23 +8,30 @@
   # gitkraken requires unfree
   # TODO: find comfy FLOSS GUI git client
   nixpkgs.config.allowUnfree = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.user = {
-    isNormalUser = true;
-    description = "user";
-    extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox
-      # replace with freer version
-      #librewolf
       vlc
+      
       # unfree
       gitkraken
+      
       # basics
-      #zoom-us
-      #deluge
+      zoom-us
+      deluge
       keepassxc
+      
       #thunderbird
+       
+      # userland tools for everyone
+      # if it was packaged i'd love balenaEtcher
+      #alacritty
+      #aria2
+      #appimage-run
+      #appimagetools
+      #adb
+      #fastboot
     ];
   };
 }

@@ -7,13 +7,14 @@
 {
   imports =
     [ # path-tofile.nix
-      apss-gui.nix
-      apps-system.nix
-      gnome.nix
-      harden.nix
-      locale.nix
-      networking.nix
-      user.nix
+      ./apps-gui.nix
+      ./apps-system.nix
+      ./default-users.nix
+      ./cinnamon.nix
+      #./gnome.nix
+      ./harden.nix
+      ./locale.nix
+      ./networking.nix
     ];
   
   # nix config goes here

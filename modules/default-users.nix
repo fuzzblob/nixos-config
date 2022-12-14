@@ -7,15 +7,17 @@
 { config, pkgs, ... }:
 
 {
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Default user account. Don't forget to set a password with ‘passwd’.
   users = {
     mutableUsers = true;
     users.user = {
+      description = "user";
       isNormalUser = true;
+      
       # hint: legacy
       initialHashedPassword = "$y$j9T$TudrxCe7f.rPWtmEV8aIA0$Kpsuy1CnS7.HLCY7afG8P5Dc9yIRqfuVBCIpB/1Qt7B";
+      
       home = "/home/user";
-      description = "everyday user";
       extraGroups = [
         "wheel" # enable sudo
         "networkmanager" # enable networking configureation

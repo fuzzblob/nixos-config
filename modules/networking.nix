@@ -23,18 +23,17 @@
     # (the default) this is the recommended approach. When using systemd-networkd it's
     # still possible to use this option, but it's recommended to use it in conjunction
     # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-    useDHCP = lib.mkDefault true;
+    #useDHCP = lib.mkDefault true;
     # networking.interfaces.enp0s25.useDHCP = lib.mkDefault true;
     # networking.interfaces.wlp4s0.useDHCP = lib.mkDefault true;
-    };
-
+ 
     wireless.userControlled.enable = true;
     wireless.networks = {
       "free.wifi" = {}; # Public wireless network
     };
 
     firewall = {
-      networking.firewall.enable = true;
+      enable = true;
       # 631 IPP - printer discovery
       
       # Open ports in the firewall.
