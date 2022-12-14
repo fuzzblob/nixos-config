@@ -9,8 +9,8 @@
     openssh = {
       enable = false;
       # investigate enabling these for ssh
-      permitRootLogin = "prohibit-password";
-      passwordAuthentication = false;
+      #permitRootLogin = "prohibit-password";
+      #passwordAuthentication = false;
       allowSFTP = false;
     };
     fail2ban = {
